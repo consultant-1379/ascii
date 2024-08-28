@@ -1,0 +1,24 @@
+<project name="ascii" default="test_all">
+    <property name="module.name" value="ascii"/>
+    <property file="${user.home}/EniqBuild/BH/build.properties"/>
+    <property name="ant.common" value="${cc.base}/tools/ant_common"/>
+    <property file="${ant.common}/common.properties"/>
+    <property name="module.build" value="${module.ascii.build}"/>
+    <property name="module.base" value="${module.ascii.base}"/>
+    <property name="module.dependants" value="${module.ascii.dependants}"/>
+    <import file="${ant.common}/common.xml"/>
+    <property name="tests.to.run" value="**/*Test.class"/>
+
+    <path id="ascii.lib.classpath">
+        <path refid="plaform.lib.classpath"/>
+        <path location="${module.common_utilities.pkg}"/>
+        <path location="${module.parser.pkg}"/>
+        <path location="${module.engine.pkg}"/>
+	<path location="${module.repository.pkg}"/>
+    </path>
+    <path id="ascii.test.classpath">
+        <path refid="platform.test.classpath"/>
+        <path refid="ascii.lib.classpath"/>
+        <path location="${eniq.plat.base}/adapters/dev/ascii/"/>
+    </path>
+</project>
